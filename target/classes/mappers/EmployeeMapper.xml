@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0 //EN"
+"http://mybatis.org/dtd/mybatis-3.mapper.dtd">
+
+<mapper namespace="com.project.mapper.EmployeeMapper">
+
+	<insert id="create">
+		insert into employee (name_ko, name_en, phone, email,
+		address) values
+		(#{name_ko}, #{name_en}, #{phone}, #{email},
+		#{address})
+	</insert>
+
+	<select id="read" resultType="com.project.domain.EmployeeVO">
+		select
+		name_ko, name_en, phone,
+		email, address
+		from
+		employee
+		where id=#{id}
+	</select>
+
+	<update id="update">
+		update
+		employee
+		set name_ko=#{name_ko},
+		name_en=#{name_en}, phone=#{phone},
+		email=#{email}, address=#{address}
+		where id = #{id}
+	</update>
+
+	<delete id="delete">
+		delete from employee where id=#{id}
+	</delete>
+
+	<select id="listAll" resultType="com.project.domain.EmployeeVO">
+		<![CDATA[
+		select 
+		name_ko,name_en,phone,email,address
+		from
+		employee
+		order by id desc
+		]]>
+	</select>
+</mapper>
