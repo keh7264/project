@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0 //EN"
-"http://mybatis.org/dtd/mybatis-3.mapper.dtd">
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.project.mapper.EmployeeMapper">
 
@@ -13,8 +14,8 @@
 
 	<select id="read" resultType="com.project.domain.EmployeeVO">
 		select
-		name_ko, name_en, phone,
-		email, address
+		id, name_ko, name_en, phone,
+		email, address, regdate
 		from
 		employee
 		where id=#{id}
@@ -36,7 +37,7 @@
 	<select id="listAll" resultType="com.project.domain.EmployeeVO">
 		<![CDATA[
 		select 
-		name_ko,name_en,phone,email,address
+		id, name_ko,name_en,phone,email,address,regdate
 		from
 		employee
 		order by id desc

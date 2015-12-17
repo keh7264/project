@@ -16,7 +16,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 	private EmployeeDAO dao;
 	
 	@Override
-	public void regist(EmployeeVO employee) throws Exception {
+	public void register(EmployeeVO employee) throws Exception {
 		// TODO Auto-generated method stub
 		dao.create(employee);
 	}
