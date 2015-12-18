@@ -5,27 +5,77 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<form role="form" method="post">
-		<div>
-			<label for="name_ko"> 한글이름 </label> <input type="text" name='name_ko'>
+	<br />
+	<div class="container">
+
+		<div class="row">
+			<div class="col-sm-2"></div>
+			<div class="col-sm-8">
+				<div class="page-header">
+					<h2>Employee REGISTER Page</h2>
+				</div>
+				<br /> <br />
+				<form role="form" method="post">
+					<input type="hidden" name="id" value="${employeeVO.id}">
+
+					<div class="well well-sm">
+						<p>
+							<label for="name_ko"> 한글이름 </label>
+						</p>
+						<input type="text" name="name_ko" value="${employeeVO.name_ko}"
+							class="form-control">
+					</div>
+					<div class="well well-sm">
+						<p>
+							<label for="name_en"> 영문이름 </label>
+						</p>
+						<input type="text" name='name_en' value="${employeeVO.name_en}"
+							class="form-control">
+					</div>
+					<div class="well well-sm">
+						<p>
+							<label for="phone"> 전화번호 </label>
+						</p>
+						<input type="text" name='phone' value="${employeeVO.phone}"
+							class="form-control">
+					</div>
+					<div class="well well-sm">
+						<p>
+							<label for="email"> 이메일 </label>
+						</p>
+						<input type="text" name='email' value="${employeeVO.email}"
+							class="form-control">
+					</div>
+					<div class="well well-sm">
+						<p>
+							<label for="address"> 주소 </label>
+						</p>
+						<input type="text" name='address' value="${employeeVO.address}"
+							class="form-control">
+					</div>
+
+					<div class="row">
+						<div class="col-sm-4"></div>
+						<div class="col-sm-4">
+							<div>
+								<button type="submit" class="btn btn-primary">저장</button>
+							</div>
+						</div>
+						<div class="col-sm-3"></div>
+					</div>
+				</form>
+			</div>
+			<div class="col-sm-4"></div>
 		</div>
-		<div>
-			<label for="name_en"> 영문이름 </label> <input type="text" name='name_en'>
-		</div>
-		<div>
-			<label for="phone"> 전화번호 </label> <input type="text" name='phone'>
-		</div>
-		<div>
-			<label for="email"> 이메일 </label> <input type="text" name='email'>
-		</div>
-		<div>
-			<label for="address"> 주소 </label> <input type="text" name='address'>
-		</div>
-		<div>
-			<button type="submit">등록하기</button>
-		</div>
-	</form>
+	</div>
 </body>
 </html>

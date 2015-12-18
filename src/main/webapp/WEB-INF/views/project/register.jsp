@@ -4,7 +4,6 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 <title>Insert title here</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
@@ -15,20 +14,6 @@
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<script>
-		$(document).ready(function() {
-			var formObj = $("form[role='form']");
-			console.log(formObj);
-
-			$(".btn-danger").on("click", function() {
-				self.location = "/employee/list";
-			});
-
-			$(".btn-primary").on("click", function() {
-				formObj.submit();
-			});
-		});
-	</script>
 	<br />
 	<div class="container">
 
@@ -36,46 +21,43 @@
 			<div class="col-sm-2"></div>
 			<div class="col-sm-8">
 				<div class="page-header">
-					<h2>Employee Modify Page</h2>
+					<h2>Project REGISTER Page</h2>
 				</div>
 				<br /> <br />
 				<form role="form" method="post">
-					<input type="hidden" name="id" value="${employeeVO.id}">
+					<input type="hidden" name="id" value="${projectVO.id}">
 
 					<div class="well well-sm">
 						<p>
-							<label for="name_ko"> 한글이름 </label>
+							<label for="name"> 프로젝트명 </label>
 						</p>
-						<input type="text" name="name_ko" value="${employeeVO.name_ko}"
+						<input type="text" name="name" value="${projectVO.name}"
 							class="form-control">
 					</div>
 					<div class="well well-sm">
 						<p>
-							<label for="name_en"> 영문이름 </label>
+							<label for="start_date"> 시작일 (yyyy-mm-dd) </label>
 						</p>
-						<input type="text" name='name_en' value="${employeeVO.name_en}"
-							class="form-control">
+						<input type="text" name='start_date' class="form-control">
 					</div>
 					<div class="well well-sm">
 						<p>
-							<label for="phone"> 전화번호 </label>
+							<label for="end_date"> 마감예정일 (yyyy-mm-dd) </label>
 						</p>
-						<input type="text" name='phone' value="${employeeVO.phone}"
-							class="form-control">
+						<input type="text" name='end_date' class="form-control">
 					</div>
 					<div class="well well-sm">
 						<p>
-							<label for="email"> 이메일 </label>
+							<label for="website"> 웹사이트 </label>
 						</p>
-						<input type="text" name='email' value="${employeeVO.email}"
-							class="form-control">
+						<input type="text" name='website' class="form-control">
 					</div>
 					<div class="well well-sm">
 						<p>
-							<label for="address"> 주소 </label>
+							<label for="detail"> 세부사항 </label>
 						</p>
-						<input type="text" name='address' value="${employeeVO.address}"
-							class="form-control">
+						<textarea class="form-control" rows="3" name="detail"></textarea>
+
 					</div>
 
 					<div class="row">
@@ -83,7 +65,6 @@
 						<div class="col-sm-4">
 							<div>
 								<button type="submit" class="btn btn-primary">저장</button>
-								<button type="submit" class="btn btn-danger">취소</button>
 							</div>
 						</div>
 						<div class="col-sm-3"></div>

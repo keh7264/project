@@ -21,7 +21,7 @@
 			console.log(formObj);
 
 			$(".btn-danger").on("click", function() {
-				self.location = "/employee/list";
+				self.location = "/project/list";
 			});
 
 			$(".btn-primary").on("click", function() {
@@ -36,46 +36,45 @@
 			<div class="col-sm-2"></div>
 			<div class="col-sm-8">
 				<div class="page-header">
-					<h2>Employee Modify Page</h2>
+					<h2>Project Modify Page</h2>
 				</div>
 				<br /> <br />
 				<form role="form" method="post">
-					<input type="hidden" name="id" value="${employeeVO.id}">
+					<input type="hidden" name="id" value="${projectVO.id}">
 
 					<div class="well well-sm">
 						<p>
-							<label for="name_ko"> 한글이름 </label>
+							<label for="name"> 프로젝트명 </label>
 						</p>
-						<input type="text" name="name_ko" value="${employeeVO.name_ko}"
+						<input type="text" name="name" value="${projectVO.name}"
 							class="form-control">
 					</div>
 					<div class="well well-sm">
 						<p>
-							<label for="name_en"> 영문이름 </label>
+							<label for="start_date"> 시작일 </label>
 						</p>
-						<input type="text" name='name_en' value="${employeeVO.name_en}"
+						<input type="text" name='start_date'
+							value='${projectVO.start_date }' class="form-control">
+					</div>
+					<div class="well well-sm">
+						<p>
+							<label for="end_date"> 마감예정일 </label>
+						</p>
+						<input type="text" name='end_date' value='${projectVO.end_date }'
 							class="form-control">
 					</div>
 					<div class="well well-sm">
 						<p>
-							<label for="phone"> 전화번호 </label>
+							<label for="website"> 웹사이트 </label>
 						</p>
-						<input type="text" name='phone' value="${employeeVO.phone}"
+						<input type="text" name='website' value="${projectVO.website}"
 							class="form-control">
 					</div>
 					<div class="well well-sm">
 						<p>
-							<label for="email"> 이메일 </label>
+							<label for="detail"> 세부사항 </label>
 						</p>
-						<input type="text" name='email' value="${employeeVO.email}"
-							class="form-control">
-					</div>
-					<div class="well well-sm">
-						<p>
-							<label for="address"> 주소 </label>
-						</p>
-						<input type="text" name='address' value="${employeeVO.address}"
-							class="form-control">
+						<textarea class="form-control" rows="3" name="detail">${projectVO.detail}</textarea>
 					</div>
 
 					<div class="row">

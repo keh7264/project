@@ -31,32 +31,31 @@
 
 			<div class="col-sm-8">
 				<div class="page-header">
-					<h2>Employee LIST Page</h2>
+					<h2>PROJECT LIST Page</h2>
 					<p>
-						<a href="/project/list">GO TO PROJECT LIST PAGE</a>
+						<a href="/employee/list">GO TO EMPLOYEE LIST PAGE</a>
 					</p>
 				</div>
 				<br /> <br />
 				<p>
-					<a href="/employee/register">사원 등록하기</a>
+					<a href="/project/register">프로젝트 등록하기</a>
 				</p>
 				<table class="table">
 					<thead>
 						<tr>
 							<th>번호</th>
-							<th>이름</th>
-							<th>전화번호</th>
-							<th>등록일</th>
+							<th>프로젝트명</th>
+							<th>시작일</th>
+							<th>마감일</th>
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach items="${list}" var="employeeVO">
+						<c:forEach items="${list}" var="projectVO">
 							<tr>
-								<td>${employeeVO.id}</td>
-								<td><a href="/employee/read?id=${employeeVO.id }">${employeeVO.name_ko}</a></td>
-								<td>${employeeVO.phone}</td>
-								<td><fmt:formatDate pattern="yyyy-MM-dd"
-										value="${employeeVO.regdate }" /></td>
+								<td>${projectVO.id}</td>
+								<td><a href="/project/read?id=${projectVO.id }">${projectVO.name}</a></td>
+								<td>${projectVO.start_date }</td>
+								<td>${projectVO.end_date }</td>
 							</tr>
 						</c:forEach>
 					</tbody>

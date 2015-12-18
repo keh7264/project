@@ -23,80 +23,68 @@
 			console.log(formObj);
 
 			$(".btn-primary").on("click", function() {
-				formObj.attr("action", "/employee/modify");
+				formObj.attr("action", "/project/modify");
 				formObj.attr("method", "get");
 				formObj.submit();
 			});
 
 			$(".btn-danger").on("click", function() {
-				formObj.attr("action", "/employee/remove");
+				formObj.attr("action", "/project/remove");
 				formObj.submit();
 			});
 			$(".btn-warning").on("click", function() {
-				self.location = "/employee/list";
+				self.location = "/project/list";
 			});
 		});
 	</script>
 	<br />
-
 	<div class="container">
 
 		<div class="row">
 			<div class="col-sm-2"></div>
-
 			<div class="col-sm-8">
 				<div class="page-header">
-					<h2>Employee Detail Page</h2>
+					<h2>Project DETAIL Page</h2>
 				</div>
 				<br /> <br />
 				<form role="form" method="post">
-					<input type="hidden" name="id" value="${employeeVO.id}">
+					<input type="hidden" name="id" value="${projectVO.id}">
 				</form>
 				<div class="well well-sm">
 					<p>
-						<label for="name_ko"> 한글이름 </label>
+						<label for="name"> 프로젝트명 </label>
 					</p>
-					<input type="text" name="name_ko" value="${employeeVO.name_ko}"
+					<input type="text" name="name" value="${projectVO.name}"
 						readonly="readonly" class="form-control">
 				</div>
 				<div class="well well-sm">
 					<p>
-						<label for="name_en"> 영문이름 </label>
+						<label for="start_date"> 시작일 </label>
 					</p>
-					<input type="text" name='name_en' value="${employeeVO.name_en}"
-						readonly="readonly" class="form-control">
+					<input type="text" name='start_date' readonly="readonly"
+						value='${projectVO.start_date }' class="form-control">
 				</div>
 				<div class="well well-sm">
 					<p>
-						<label for="phone"> 전화번호 </label>
+						<label for="end_date"> 마감예정일 </label>
 					</p>
-					<input type="text" name='phone' value="${employeeVO.phone}"
-						readonly="readonly" class="form-control">
+					<input type="text" name='end_date' readonly="readonly"
+						value='${projectVO.end_date }' class="form-control">
 				</div>
 				<div class="well well-sm">
 					<p>
-						<label for="email"> 이메일 </label>
+						<label for="website"> 웹사이트 </label>
 					</p>
-					<input type="text" name='email' value="${employeeVO.email}"
-						readonly="readonly" class="form-control">
+					<input type="text" name='website' readonly="readonly"
+						value="${projectVO.website}" class="form-control">
 				</div>
 				<div class="well well-sm">
 					<p>
-						<label for="address"> 주소 </label>
+						<label for="detail"> 세부사항 </label>
 					</p>
-					<input type="text" name='address' value="${employeeVO.address}"
-						readonly="readonly" class="form-control">
+					<textarea class="form-control" rows="3" name="detail" readonly="readonly">${projectVO.detail}</textarea>
 				</div>
-				<div class="well well-sm">
-					<p>
-						<label for="regdate"> 등록일 </label>
-					</p>
-					
-					<input type="text" name='regdate'
-						value="<fmt:formatDate pattern='yyyy-MM-dd hh:mm'
-										value='${employeeVO.regdate }' />"
-						readonly="readonly" class="form-control">
-				</div>
+
 				<div class="row">
 					<div class="col-sm-4"></div>
 					<div class="col-sm-4">
@@ -106,10 +94,12 @@
 							<button type="submit" class="btn btn-warning">목록</button>
 						</div>
 					</div>
-					<div class="col-sm-4"></div>
+					<div class="col-sm-3"></div>
 				</div>
+
 			</div>
-			<div class="col-sm-2"></div>
+
+			<div class="col-sm-4"></div>
 		</div>
 	</div>
 </body>
