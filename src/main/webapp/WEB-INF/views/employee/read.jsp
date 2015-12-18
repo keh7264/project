@@ -36,7 +36,7 @@
 		<p>
 			<label for="name_ko"> 한글이름 </label>
 		</p>
-		<input type="text" name='name_ko' value="${employeeVO.name_ko}"
+		<input type="text" name="name_ko" value="${employeeVO.name_ko}"
 			readonly="readonly">
 	</div>
 	<div>

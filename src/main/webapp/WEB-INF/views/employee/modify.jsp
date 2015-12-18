@@ -10,52 +10,53 @@
 <body>
 	<form role="form" method="post">
 		<input type="hidden" name="id" value="${employeeVO.id}">
+
+		<div>
+			<p>
+				<label for="name_ko"> 한글이름 </label>
+			</p>
+			<input type="text" name="name_ko" value="${employeeVO.name_ko}">
+		</div>
+		<div>
+			<p>
+				<label for="name_en"> 영문이름 </label>
+			</p>
+			<input type="text" name="name_en" value="${employeeVO.name_en}">
+		</div>
+		<div>
+			<p>
+				<label for="phone"> 전화번호 </label>
+			</p>
+			<input type="text" name='phone' value="${employeeVO.phone}">
+		</div>
+		<div>
+			<p>
+				<label for="email"> 이메일 </label>
+			</p>
+			<input type="text" name='email' value="${employeeVO.email}">
+		</div>
+		<div>
+			<p>
+				<label for="address"> 주소 </label>
+			</p>
+			<input type="text" name='address' value="${employeeVO.address}">
+		</div>
 	</form>
-	<div>
-		<p>
-			<label for="name_ko"> 한글이름 </label>
-		</p>
-		<input type="text" name='name_ko' value="${employeeVO.name_ko}">
-	</div>
-	<div>
-		<p>
-			<label for="name_en"> 영문이름 </label>
-		</p>
-		<input type="text" name='name_en' value="${employeeVO.name_en}">
-	</div>
-	<div>
-		<p>
-			<label for="phone"> 전화번호 </label>
-		</p>
-		<input type="text" name='phone' value="${employeeVO.phone}">
-	</div>
-	<div>
-		<p>
-			<label for="email"> 이메일 </label>
-		</p>
-		<input type="text" name='email' value="${employeeVO.email}">
-	</div>
-	<div>
-		<p>
-			<label for="address"> 주소 </label>
-		</p>
-		<input type="text" name='address' value="${employeeVO.address}">
-	</div>
 	<div>
 		<button type="submit" class="save-btn">SAVE</button>
 		<button type="submit" class="cancel-btn">CANCEL</button>
 	</div>
 
-	<script type="text/javascript">
+	<script>
 		$(document).ready(function() {
 			var formObj = $("form[role='form']");
 			console.log(formObj);
 
-			$(".save-btn").on("click", function() {
+			$(".cancel-btn").on("click", function() {
 				self.location = "/employee/list";
 			});
 
-			$(".cancel-btn").on("click", function() {
+			$(".save-btn").on("click", function() {
 				formObj.submit();
 			});
 		});

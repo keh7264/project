@@ -59,9 +59,11 @@ public class EmployeeController {
 	@RequestMapping(value = "/modify", method = RequestMethod.POST)
 	public String modifyPOST(EmployeeVO employee, RedirectAttributes rttr)
 			throws Exception {
-		logger.info("modify post");
+		logger.info("modify post................................");
+		
 		service.modify(employee);
 		rttr.addFlashAttribute("result", "success");
+		
 		return "redirect:/employee/list";
 	}
 
