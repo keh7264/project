@@ -6,6 +6,7 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
+import com.project.domain.EmployeeVO;
 import com.project.domain.ProjectVO;
 import com.project.persistence.ProjectDAO;
 
@@ -44,6 +45,12 @@ public class ProjectServiceImpl implements ProjectService {
 	public List<ProjectVO> listAll() throws Exception {
 		// TODO Auto-generated method stub
 		return dao.listAll();
+	}
+
+	@Override
+	public List<EmployeeVO> employeeList(Integer id) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.employeeList(id);
 	}
 
 }

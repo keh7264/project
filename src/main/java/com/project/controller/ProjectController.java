@@ -48,6 +48,7 @@ public class ProjectController {
 	@RequestMapping(value = "/read", method = RequestMethod.GET)
 	public void read(@RequestParam("id") int id, Model model) throws Exception {
 		model.addAttribute(service.read(id));
+		model.addAttribute("employeeList", service.employeeList(id));
 	}
 
 	@RequestMapping(value = "/modify", method = RequestMethod.GET)
@@ -60,10 +61,10 @@ public class ProjectController {
 	public String modifyPOST(ProjectVO project, RedirectAttributes rttr)
 			throws Exception {
 		logger.info("modify post................................");
-		
+
 		service.modify(project);
 		rttr.addFlashAttribute("result", "success");
-		
+
 		return "redirect:/project/list";
 	}
 

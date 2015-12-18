@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.project.domain.EmployeeVO;
 import com.project.domain.ProjectVO;
 
 @Repository
@@ -47,6 +48,12 @@ public class ProjectDAOImpl implements ProjectDAO {
 	public List<ProjectVO> listAll() throws Exception {
 		// TODO Auto-generated method stub
 		return session.selectList(namespace + ".listAll");
+	}
+
+	@Override
+	public List<EmployeeVO> employeeList(Integer id) throws Exception {
+		// TODO Auto-generated method stub
+		return session.selectList(namespace+".employeeList" , id);
 	}
 
 }

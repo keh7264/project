@@ -51,14 +51,14 @@
 					</div>
 					<div class="well well-sm">
 						<p>
-							<label for="start_date"> 시작일 </label>
+							<label for="start_date"> 시작일 (yyyy-mm-dd) </label>
 						</p>
 						<input type="text" name='start_date'
 							value='${projectVO.start_date }' class="form-control">
 					</div>
 					<div class="well well-sm">
 						<p>
-							<label for="end_date"> 마감예정일 </label>
+							<label for="end_date"> 마감예정일 (yyyy-mm-dd) </label>
 						</p>
 						<input type="text" name='end_date' value='${projectVO.end_date }'
 							class="form-control">

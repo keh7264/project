@@ -49,4 +49,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		order by id desc
 		]]>
 	</select>
+	
+	<select id="employeeList" resultType="com.project.domain.EmployeeVO">
+		select
+		e.name_ko, e.id
+		from employee as e
+		where e.id in ( select ep.employee_id
+						from employee_project as ep inner join project as p
+						on ep.project_id= p.id
+						where p.id = #{id});
+
+	</select>
 </mapper>
