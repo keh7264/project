@@ -47,7 +47,9 @@ public class EmployeeController {
 
 	@RequestMapping(value = "/read", method = RequestMethod.GET)
 	public void read(@RequestParam("id") int id, Model model) throws Exception {
+		logger.info("read..........");
 		model.addAttribute(service.read(id));
+		model.addAttribute("projectList", service.projectList(id));
 	}
 
 	@RequestMapping(value = "/modify", method = RequestMethod.GET)

@@ -26,9 +26,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		employee
 		set
 		name_ko = #{name_ko},
-		name_en =#{name_en}, 
+		name_en
+		=#{name_en},
 		phone = #{phone},
-		email = #{email}, 
+		email = #{email},
 		address = #{address}
 		where id = #{id}
 	</update>
@@ -46,6 +47,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		order by id desc
 		]]>
 	</select>
-	
-	
+
+	<select id="projectList" resultType="com.project.domain.ProjectVO">
+		select
+		p.name, p.id
+		from
+		project as p
+		where p.id in ( select ep.project_id
+		from employee_project
+		as ep inner join employee as e
+		on ep.employee_id= e.id
+		where e.id =
+		#{id});
+
+	</select>
 </mapper>

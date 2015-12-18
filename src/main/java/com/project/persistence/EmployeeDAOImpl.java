@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.project.domain.EmployeeVO;
+import com.project.domain.ProjectVO;
 
 @Repository
 public class EmployeeDAOImpl implements EmployeeDAO {
@@ -47,6 +48,12 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 	public List<EmployeeVO> listAll() throws Exception {
 		// TODO Auto-generated method stub
 		return session.selectList(namespace + ".listAll");
+	}
+
+	@Override
+	public List<ProjectVO> projectList(Integer id) throws Exception {
+		// TODO Auto-generated method stub
+		return session.selectList(namespace + ".projectList", id);
 	}
 
 }

@@ -90,14 +90,12 @@
 					<p>
 						<label for="employee"> 참여사원 </label>
 					</p>
-					<div class="row">
-						<div class="box">
+					<div style="font-size: 20px;">
 						<c:forEach items="${employeeList}" var="employeeVO">
-							<div class="col-sm-3">
-								<a href='/employee/read?id=${employeeVO.id }'>${employeeVO.name_ko}</a>
-							</div>
+							<span class="label label-default"
+								style="background-color: white;"><a
+								href='/employee/read?id=${employeeVO.id }'>${employeeVO.name_ko}</a></span>
 						</c:forEach>
-						</div>
 					</div>
 				</div>
 				<div class="row">

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -96,6 +97,18 @@
 						value="<fmt:formatDate pattern='yyyy-MM-dd hh:mm'
 										value='${employeeVO.regdate }' />"
 						readonly="readonly" class="form-control">
+				</div>
+				<div class="well well-sm">
+					<p>
+						<label for="project"> 참여 프로젝트 </label>
+					</p>
+					<div style="font-size: 20px;">
+						<c:forEach items="${projectList}" var="projectVO">
+							<span class="label label-default"
+								style="background-color: white;"><a
+								href='/project/read?id=${projectVO.id }'>${projectVO.name}</a></span>
+						</c:forEach>
+					</div>
 				</div>
 				<div class="row">
 					<div class="col-sm-4"></div>
