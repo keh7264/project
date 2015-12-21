@@ -1,5 +1,7 @@
 package com.project.controller;
 
+import java.util.HashMap;
+
 import javax.inject.Inject;
 
 import org.slf4j.Logger;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.project.domain.EmployeeProjectVO;
 import com.project.domain.EmployeeVO;
 import com.project.service.EmployeeService;
 
@@ -56,16 +59,22 @@ public class EmployeeController {
 	public void modifyGET(@RequestParam("id") int id, Model model)
 			throws Exception {
 		model.addAttribute(service.read(id));
+
 	}
 
 	@RequestMapping(value = "/modify", method = RequestMethod.POST)
 	public String modifyPOST(EmployeeVO employee, RedirectAttributes rttr)
 			throws Exception {
 		logger.info("modify post................................");
-		
+
 		service.modify(employee);
+		/*
+		 * EmployeeProjectVO epVO = new EmployeeProjectVO();
+		 * epVO.setEmployee_id(employee.getId()); epVO.setProject_id();
+		 * service.addProject(epVO);
+		 */
 		rttr.addFlashAttribute("result", "success");
-		
+
 		return "redirect:/employee/list";
 	}
 
@@ -78,4 +87,45 @@ public class EmployeeController {
 		rttr.addFlashAttribute("result", "success");
 		return "redirect:/employee/list";
 	}
+
+	@RequestMapping(value = "/projectManagement/add", method = RequestMethod.POST)
+	public String addProject(EmployeeProjectVO employeeProject,
+			RedirectAttributes rttr) throws Exception {
+		logger.info("add projects post................................");
+
+		// service.removeProject(employeeProject.getEmployee_id());
+		service.addProject(employeeProject);
+
+		rttr.addFlashAttribute("result", "success");
+
+		return "redirect:/employee/projectManagement?id="
+				+ employeeProject.getEmployee_id();
+	}
+
+	@RequestMapping(value = "/projectManagement", method = RequestMethod.GET)
+	public void manageProject(@RequestParam("id") int id, Model model)
+			throws Exception {
+		logger.info("add projects get................................");
+
+		model.addAttribute(service.read(id));
+		// model.addAttribute("projectList",service.projectList(id));
+		model.addAttribute("projectListAll", service.projectList(id));
+		model.addAttribute("otherProjects", service.otherProjects(id));
+
+	}
+
+	@RequestMapping(value = "/projectManagement/remove", method = RequestMethod.POST)
+	public String removeProject(@RequestParam("employee_id") int employee_id,
+			@RequestParam("project_id") int project_id, RedirectAttributes rttr)
+			throws Exception {
+
+		HashMap<String, Integer> map = new HashMap<String, Integer>();
+		map.put("project_id", project_id);
+		map.put("employee_id", employee_id);
+		service.removeEmployeeProject(map);
+
+		rttr.addFlashAttribute("result", "success");
+		return "redirect:/employee/projectManagement?id=" + employee_id;
+	}
+
 }

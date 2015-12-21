@@ -15,7 +15,7 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-<title>Insert title here</title>
+<title>Employee Detail Page</title>
 </head>
 <body>
 	<script>
@@ -36,6 +36,11 @@
 			$(".btn-warning").on("click", function() {
 				self.location = "/employee/list";
 			});
+			$(".btn-default").on("click", function() {
+				formObj.attr("action", "/employee/projectManagement");
+				formObj.attr("method", "get");
+				formObj.submit();
+			});
 		});
 	</script>
 	<br />
@@ -49,7 +54,7 @@
 				<div class="page-header">
 					<h2>Employee Detail Page</h2>
 				</div>
-				<br /> <br />
+				<br />
 				<form role="form" method="post">
 					<input type="hidden" name="id" value="${employeeVO.id}">
 				</form>
@@ -92,7 +97,7 @@
 					<p>
 						<label for="regdate"> 등록일 </label>
 					</p>
-					
+
 					<input type="text" name='regdate'
 						value="<fmt:formatDate pattern='yyyy-MM-dd hh:mm'
 										value='${employeeVO.regdate }' />"
@@ -100,7 +105,8 @@
 				</div>
 				<div class="well well-sm">
 					<p>
-						<label for="project"> 참여 프로젝트 </label>
+						<label for="employee"> 참여프로젝트 </label>
+
 					</p>
 					<div style="font-size: 20px;">
 						<c:forEach items="${projectList}" var="projectVO">
@@ -108,6 +114,10 @@
 								style="background-color: white;"><a
 								href='/project/read?id=${projectVO.id }'>${projectVO.name}</a></span>
 						</c:forEach>
+					</div>
+					<br/>
+					<div>
+						<button type="submit" class="btn btn-default">프로젝트 관리</button>
 					</div>
 				</div>
 				<div class="row">
@@ -117,6 +127,7 @@
 							<button type="submit" class="btn btn-primary">수정</button>
 							<button type="submit" class="btn btn-danger">삭제</button>
 							<button type="submit" class="btn btn-warning">목록</button>
+
 						</div>
 					</div>
 					<div class="col-sm-4"></div>

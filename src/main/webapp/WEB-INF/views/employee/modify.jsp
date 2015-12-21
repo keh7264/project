@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-<title>Insert title here</title>
+<title>Employee Modify Page</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -38,7 +39,7 @@
 				<div class="page-header">
 					<h2>Employee Modify Page</h2>
 				</div>
-				<br /> <br />
+				<br />
 				<form role="form" method="post">
 					<input type="hidden" name="id" value="${employeeVO.id}">
 
@@ -77,7 +78,19 @@
 						<input type="text" name='address' value="${employeeVO.address}"
 							class="form-control">
 					</div>
+<%-- 					<div class="well well-sm">
+						<p>
+							<label for="project"> 프로젝트 선택 (hold shift to select more than one) </label>
+						</p>
 
+						<select multiple class="form-control">
+							<c:forEach items="${projectList}" var="projectVO">
+								<option value="${projectVO.id}">${projectVO.name}</option>
+							</c:forEach>
+						</select>
+
+					</div>
+ --%>
 					<div class="row">
 						<div class="col-sm-4"></div>
 						<div class="col-sm-4">
@@ -86,7 +99,7 @@
 								<button type="submit" class="btn btn-danger">취소</button>
 							</div>
 						</div>
-						<div class="col-sm-3"></div>
+						<div class="col-sm-4"></div>
 					</div>
 				</form>
 			</div>

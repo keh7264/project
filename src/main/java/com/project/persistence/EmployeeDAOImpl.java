@@ -1,5 +1,6 @@
 package com.project.persistence;
 
+import java.util.HashMap;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -7,6 +8,7 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.project.domain.EmployeeProjectVO;
 import com.project.domain.EmployeeVO;
 import com.project.domain.ProjectVO;
 
@@ -22,7 +24,6 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 	public void create(EmployeeVO vo) throws Exception {
 		// TODO Auto-generated method stub
 		session.insert(namespace + ".create", vo);
-
 	}
 
 	@Override
@@ -35,7 +36,6 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 	public void update(EmployeeVO vo) throws Exception {
 		// TODO Auto-generated method stub
 		session.update(namespace + ".update", vo);
-
 	}
 
 	@Override
@@ -55,5 +55,28 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 		// TODO Auto-generated method stub
 		return session.selectList(namespace + ".projectList", id);
 	}
+
+	@Override
+	public void addProject(EmployeeProjectVO vo) throws Exception {
+		// TODO Auto-generated method stub
+		session.insert(namespace + ".addProject", vo);
+	}
+
+	@Override
+	public List<ProjectVO> ohterProjects(Integer id) throws Exception {
+		// TODO Auto-generated method stub
+		return session.selectList(namespace + ".otherProjects", id);
+	}
+
+	@Override
+	public void deleteEmployeeProject(HashMap<String, Integer> map)
+			throws Exception {
+		// TODO Auto-generated method stub
+		session.delete(namespace +".deleteEmployeeProject", map);
+	}
+
+
+
+
 
 }

@@ -1,7 +1,9 @@
 package com.project.service;
 
+import java.util.HashMap;
 import java.util.List;
 
+import com.project.domain.EmployeeProjectVO;
 import com.project.domain.EmployeeVO;
 import com.project.domain.ProjectVO;
 
@@ -17,5 +19,11 @@ public interface EmployeeService {
 	public List<EmployeeVO> listAll() throws Exception;
 	
 	public List<ProjectVO> projectList(Integer id) throws Exception;
+	
+	public void addProject(EmployeeProjectVO employeeProject) throws Exception;
+	
+	public List<ProjectVO> otherProjects(Integer id) throws Exception;
 
+	public void removeEmployeeProject(HashMap<String, Integer> map) throws Exception;
+	
 }
