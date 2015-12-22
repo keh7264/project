@@ -82,6 +82,7 @@ public class ProjectController {
 		return "redirect:/project/list";
 	}
 	
+<<<<<<< HEAD
 	@RequestMapping(value = "/employeeManagement/add", method = RequestMethod.POST)
 	public String addEmployee(EmployeeProjectVO employeeProject,
 			RedirectAttributes rttr) throws Exception {
@@ -120,6 +121,8 @@ public class ProjectController {
 		return "redirect:/project/employeeManagement?id=" + project_id;
 	}
 
+=======
+>>>>>>> e59354a92444e1e9cab10849c489efa056bd58f1
 	//db에 ''이 아니라 null이 입력되게 설정
 	public void settingDateIsNull(ProjectVO project){
 		if("".equals(project.getStart_date()) ){
