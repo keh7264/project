@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-<title>Employee Modify Page</title>
+<title>사원 정보 수정</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -23,6 +23,7 @@
 
 			$(".btn-danger").on("click", function() {
 				self.location = "/employee/list";
+				
 			});
 
 			$(".btn-primary").on("click", function() {
@@ -37,7 +38,7 @@
 			<div class="col-sm-2"></div>
 			<div class="col-sm-8">
 				<div class="page-header">
-					<h2>Employee Modify Page</h2>
+					<h2>사원 정보 수정</h2>
 				</div>
 				<br />
 				<form role="form" method="post">
@@ -48,7 +49,7 @@
 							<label for="name_ko"> 한글이름 </label>
 						</p>
 						<input type="text" name="name_ko" value="${employeeVO.name_ko}"
-							class="form-control">
+							class="form-control" required>
 					</div>
 					<div class="well well-sm">
 						<p>
@@ -62,7 +63,7 @@
 							<label for="phone"> 전화번호 </label>
 						</p>
 						<input type="text" name='phone' value="${employeeVO.phone}"
-							class="form-control">
+							class="form-control" required>
 					</div>
 					<div class="well well-sm">
 						<p>
@@ -78,19 +79,7 @@
 						<input type="text" name='address' value="${employeeVO.address}"
 							class="form-control">
 					</div>
-<%-- 					<div class="well well-sm">
-						<p>
-							<label for="project"> 프로젝트 선택 (hold shift to select more than one) </label>
-						</p>
 
-						<select multiple class="form-control">
-							<c:forEach items="${projectList}" var="projectVO">
-								<option value="${projectVO.id}">${projectVO.name}</option>
-							</c:forEach>
-						</select>
-
-					</div>
- --%>
 					<div class="row">
 						<div class="col-sm-4"></div>
 						<div class="col-sm-4">

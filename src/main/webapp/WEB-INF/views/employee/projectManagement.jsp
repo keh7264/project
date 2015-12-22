@@ -12,7 +12,7 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-<title>프로젝트 관리 페이지</title>
+<title>참여 프로젝트 관리</title>
 </head>
 <body>
 	<script>
@@ -44,7 +44,7 @@
 
 			<div class="col-sm-8">
 				<div class="page-header">
-					<h2>프로젝트 관리 페이지</h2>
+					<h2>참여 프로젝트 관리</h2>
 				</div>
 				<br /> <br />
 				<div class="well well-sm">
@@ -90,7 +90,7 @@
 					<div class="col-sm-4"></div>
 					<div class="col-sm-4">
 						<div>
-							<button type="submit" class="btn btn-warning">사원 정보 페이지</button>
+							<button type="submit" class="btn btn-warning">사원 상세정보 페이지</button>
 
 						</div>
 					</div>
