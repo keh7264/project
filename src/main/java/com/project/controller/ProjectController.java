@@ -91,11 +91,11 @@ public class ProjectController {
 
 		rttr.addFlashAttribute("result", "success");
 
-		return "redirect:/project/employeeManagement?id="
+		return "redirect:/project/employeeManagement/read?id="
 				+ employeeProject.getProject_id();
 	}
 
-	@RequestMapping(value = "/employeeManagement", method = RequestMethod.GET)
+	@RequestMapping(value = "/employeeManagement/read", method = RequestMethod.GET)
 	public void manageEmployee(@RequestParam("id") int id, Model model)
 			throws Exception {
 		logger.info("(add employee) get................................");
@@ -117,7 +117,7 @@ public class ProjectController {
 		service.removeEmployeeFromProject(map);
 
 		rttr.addFlashAttribute("result", "success");
-		return "redirect:/project/employeeManagement?id=" + project_id;
+		return "redirect:/project/employeeManagement/read?id=" + project_id;
 	}
 
 	//db에 ''이 아니라 null이 입력되게 설정

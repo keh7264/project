@@ -37,7 +37,7 @@
 				self.location = "/project/list";
 			});
 			$(".btn-default").on("click", function() {
-				formObj.attr("action", "/project/employeeManagement");
+				formObj.attr("action", "/project/employeeManagement/read");
 				formObj.attr("method", "get");
 				formObj.submit();
 			});

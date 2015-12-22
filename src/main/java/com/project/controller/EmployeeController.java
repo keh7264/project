@@ -98,11 +98,11 @@ public class EmployeeController {
 
 		rttr.addFlashAttribute("result", "success");
 
-		return "redirect:/employee/projectManagement?id="
+		return "redirect:/employee/projectManagement/read?id="
 				+ employeeProject.getEmployee_id();
 	}
 
-	@RequestMapping(value = "/projectManagement", method = RequestMethod.GET)
+	@RequestMapping(value = "/projectManagement/read", method = RequestMethod.GET)
 	public void manageProject(@RequestParam("id") int id, Model model)
 			throws Exception {
 		logger.info("add projects get................................");
@@ -125,7 +125,7 @@ public class EmployeeController {
 		service.removeEmployeeFromProject(map);
 
 		rttr.addFlashAttribute("result", "success");
-		return "redirect:/employee/projectManagement?id=" + employee_id;
+		return "redirect:/employee/projectManagement/read?id=" + employee_id;
 	}
 
 }

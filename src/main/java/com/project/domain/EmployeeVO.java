@@ -9,14 +9,14 @@ public class EmployeeVO {
 	private String phone;
 	private String email;
 	private String address;
-	private Date regdate;
+	private Date reg_date;
 
 	public Date getRegdate() {
-		return regdate;
+		return reg_date;
 	}
 
 	public void setRegdate(Date regdate) {
-		this.regdate = regdate;
+		this.reg_date = regdate;
 	}
 
 	public Integer getId() {
