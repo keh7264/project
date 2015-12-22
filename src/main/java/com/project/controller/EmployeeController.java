@@ -75,7 +75,7 @@ public class EmployeeController {
 		 */
 		rttr.addFlashAttribute("result", "success");
 
-		return "redirect:/employee/list";
+		return "redirect:/employee/read?id="+employee.getId();
 	}
 
 	@RequestMapping(value = "/remove", method = RequestMethod.POST)

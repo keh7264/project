@@ -69,7 +69,7 @@ public class ProjectController {
 		service.modify(project);
 		rttr.addFlashAttribute("result", "success");
 
-		return "redirect:/project/list";
+		return "redirect:/project/read?id="+project.getId();
 	}
 
 	@RequestMapping(value = "/remove", method = RequestMethod.POST)

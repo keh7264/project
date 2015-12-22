@@ -16,21 +16,6 @@
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<script>
-		$(document).ready(function() {
-			var formObj = $("form[role='form']");
-			console.log(formObj);
-
-			$(".btn-danger").on("click", function() {
-				self.location = "/employee/list";
-				
-			});
-
-			$(".btn-primary").on("click", function() {
-				formObj.submit();
-			});
-		});
-	</script>
 	<br />
 	<div class="container">
 
