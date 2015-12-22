@@ -58,6 +58,29 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 						from employee_project as ep inner join project as p
 						on ep.project_id= p.id
 						where p.id = #{id});
-
 	</select>
+	
+		<insert id="addEmployee">
+		insert into
+		employee_project (employee_id, project_id)
+		values
+		(#{employee_id}, #{project_id})
+	</insert>
+
+	<select id="otherEmployees" resultType="com.project.domain.EmployeeVO">
+		select
+		e.name_ko, e.id
+		from employee as e
+		where e.id not in ( select ep.employee_id
+						from employee_project as ep inner join project as p
+						on ep.project_id= p.id
+						where p.id = #{id});
+	</select>
+
+	<delete id="deleteEmployeeFromProject" parameterType="hashmap">
+		delete from
+		employee_project 
+		where employee_id=#{employee_id} and
+		project_id=#{project_id}
+	</delete>
 </mapper>

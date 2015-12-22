@@ -122,7 +122,7 @@ public class EmployeeController {
 		HashMap<String, Integer> map = new HashMap<String, Integer>();
 		map.put("project_id", project_id);
 		map.put("employee_id", employee_id);
-		service.removeEmployeeProject(map);
+		service.removeEmployeeFromProject(map);
 
 		rttr.addFlashAttribute("result", "success");
 		return "redirect:/employee/projectManagement?id=" + employee_id;

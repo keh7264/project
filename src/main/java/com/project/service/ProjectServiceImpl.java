@@ -1,11 +1,13 @@
 package com.project.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
+import com.project.domain.EmployeeProjectVO;
 import com.project.domain.EmployeeVO;
 import com.project.domain.ProjectVO;
 import com.project.persistence.ProjectDAO;
@@ -51,6 +53,25 @@ public class ProjectServiceImpl implements ProjectService {
 	public List<EmployeeVO> employeeList(Integer id) throws Exception {
 		// TODO Auto-generated method stub
 		return dao.employeeList(id);
+	}
+
+	@Override
+	public void addEmployee(EmployeeProjectVO employeeProject) throws Exception {
+		// TODO Auto-generated method stub
+		dao.addEmployee(employeeProject);
+	}
+
+	@Override
+	public List<EmployeeVO> otherEmployees(Integer id) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.ohterEmployees(id);
+	}
+
+	@Override
+	public void removeEmployeeFromProject(HashMap<String, Integer> map)
+			throws Exception {
+		// TODO Auto-generated method stub
+		dao.deleteEmployeeFromProject(map);
 	}
 
 }

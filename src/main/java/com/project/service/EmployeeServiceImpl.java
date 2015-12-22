@@ -69,7 +69,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 	}
 
 	@Override
-	public void removeEmployeeProject(HashMap<String, Integer> map) throws Exception {
+	public void removeEmployeeFromProject(HashMap<String, Integer> map) throws Exception {
 		// TODO Auto-generated method stub
 		dao.deleteEmployeeProject(map);
 	}

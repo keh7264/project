@@ -24,6 +24,6 @@ public interface EmployeeService {
 	
 	public List<ProjectVO> otherProjects(Integer id) throws Exception;
 
-	public void removeEmployeeProject(HashMap<String, Integer> map) throws Exception;
+	public void removeEmployeeFromProject(HashMap<String, Integer> map) throws Exception;
 	
 }

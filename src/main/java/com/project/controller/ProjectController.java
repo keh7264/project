@@ -1,5 +1,7 @@
 package com.project.controller;
 
+import java.util.HashMap;
+
 import javax.inject.Inject;
 
 import org.slf4j.Logger;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.project.domain.EmployeeProjectVO;
 import com.project.domain.ProjectVO;
 import com.project.service.ProjectService;
 
@@ -79,6 +82,44 @@ public class ProjectController {
 		return "redirect:/project/list";
 	}
 	
+	@RequestMapping(value = "/employeeManagement/add", method = RequestMethod.POST)
+	public String addEmployee(EmployeeProjectVO employeeProject,
+			RedirectAttributes rttr) throws Exception {
+		logger.info("(add employee) post................................");
+
+		service.addEmployee(employeeProject);
+
+		rttr.addFlashAttribute("result", "success");
+
+		return "redirect:/project/employeeManagement?id="
+				+ employeeProject.getProject_id();
+	}
+
+	@RequestMapping(value = "/employeeManagement", method = RequestMethod.GET)
+	public void manageEmployee(@RequestParam("id") int id, Model model)
+			throws Exception {
+		logger.info("(add employee) get................................");
+
+		model.addAttribute(service.read(id));
+		model.addAttribute("employeeListAll", service.employeeList(id));
+		model.addAttribute("others", service.otherEmployees(id));
+
+	}
+
+	@RequestMapping(value = "/employeeManagement/remove", method = RequestMethod.POST)
+	public String removeEmployee(@RequestParam("employee_id") int employee_id,
+			@RequestParam("project_id") int project_id, RedirectAttributes rttr)
+			throws Exception {
+
+		HashMap<String, Integer> map = new HashMap<String, Integer>();
+		map.put("project_id", project_id);
+		map.put("employee_id", employee_id);
+		service.removeEmployeeFromProject(map);
+
+		rttr.addFlashAttribute("result", "success");
+		return "redirect:/project/employeeManagement?id=" + project_id;
+	}
+
 	//db에 ''이 아니라 null이 입력되게 설정
 	public void settingDateIsNull(ProjectVO project){
 		if("".equals(project.getStart_date()) ){

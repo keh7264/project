@@ -1,5 +1,6 @@
 package com.project.persistence;
 
+import java.util.HashMap;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -7,6 +8,7 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.project.domain.EmployeeProjectVO;
 import com.project.domain.EmployeeVO;
 import com.project.domain.ProjectVO;
 
@@ -53,7 +55,26 @@ public class ProjectDAOImpl implements ProjectDAO {
 	@Override
 	public List<EmployeeVO> employeeList(Integer id) throws Exception {
 		// TODO Auto-generated method stub
-		return session.selectList(namespace+".employeeList" , id);
+		return session.selectList(namespace + ".employeeList", id);
+	}
+
+	@Override
+	public void addEmployee(EmployeeProjectVO vo) throws Exception {
+		// TODO Auto-generated method stub
+		session.insert(namespace + ".addEmployee", vo);
+	}
+
+	@Override
+	public List<EmployeeVO> ohterEmployees(Integer id) throws Exception {
+		// TODO Auto-generated method stub
+		return session.selectList(namespace + ".otherEmployees", id);
+	}
+
+	@Override
+	public void deleteEmployeeFromProject(HashMap<String, Integer> map)
+			throws Exception {
+		// TODO Auto-generated method stub
+		session.delete(namespace + ".deleteEmployeeFromProject", map);
 	}
 
 }

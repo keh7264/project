@@ -36,6 +36,11 @@
 			$(".btn-warning").on("click", function() {
 				self.location = "/project/list";
 			});
+			$(".btn-default").on("click", function() {
+				formObj.attr("action", "/project/employeeManagement");
+				formObj.attr("method", "get");
+				formObj.submit();
+			});
 		});
 	</script>
 	<br />
@@ -96,6 +101,10 @@
 								style="background-color: white;"><a
 								href='/employee/read?id=${employeeVO.id }'>${employeeVO.name_ko}</a></span>
 						</c:forEach>
+					</div>
+					<br/>
+					<div>
+						<button type="submit" class="btn btn-default">참여 사원 관리</button>
 					</div>
 				</div>
 				<div class="row">

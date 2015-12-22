@@ -85,7 +85,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 
 	<delete id="deleteEmployeeProject" parameterType="hashmap">
-		delete from employee_project where employee_id=#{employee_id} and
+		delete from
+		employee_project where employee_id=#{employee_id} and
 		project_id=#{project_id}
 	</delete>
 </mapper>
