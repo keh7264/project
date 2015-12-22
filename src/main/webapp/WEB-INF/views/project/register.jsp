@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>프로젝트 등록</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -14,6 +14,30 @@
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </head>
 <body>
+	<script>
+		$(document).ready(function() {
+			var formObj = $("form[name='form']");
+
+			console.log(formObj);
+
+			$(".btn-primary").on("click", function() {
+				console.log("btn clicked");
+				validateForm();
+				formObj.submit();
+
+			});
+			
+			function validateForm() {
+
+				var start_date = $('#start_date').val();
+				if (start_date == ""||start_date.isNull() ||start_date.isEmpty())
+					$('#start_date').val("");
+				var end_date = $('#end_date').val();
+				if (end_date.equal(""))
+					$('#end_date').val(null);
+			}
+		});
+	</script>
 	<br />
 	<div class="container">
 
@@ -21,10 +45,10 @@
 			<div class="col-sm-2"></div>
 			<div class="col-sm-8">
 				<div class="page-header">
-					<h2>Project REGISTER Page</h2>
+					<h2>프로젝트 등록</h2>
 				</div>
 				<br /> <br />
-				<form role="form" method="post">
+				<form name="form" method="post">
 					<input type="hidden" name="id" value="${projectVO.id}">
 
 					<div class="well well-sm">
@@ -32,19 +56,21 @@
 							<label for="name"> 프로젝트명 </label>
 						</p>
 						<input type="text" name="name" value="${projectVO.name}"
-							class="form-control">
+							class="form-control" required>
 					</div>
 					<div class="well well-sm">
 						<p>
 							<label for="start_date"> 시작일 (yyyy-mm-dd) </label>
 						</p>
-						<input type="text" name='start_date' class="form-control">
+						<input type="text" name='start_date' class="form-control"
+							id="start_date">
 					</div>
 					<div class="well well-sm">
 						<p>
 							<label for="end_date"> 마감예정일 (yyyy-mm-dd) </label>
 						</p>
-						<input type="text" name='end_date' class="form-control">
+						<input type="text" name='end_date' class="form-control"
+							id="end_date">
 					</div>
 					<div class="well well-sm">
 						<p>
@@ -67,7 +93,7 @@
 								<button type="submit" class="btn btn-primary">저장</button>
 							</div>
 						</div>
-						<div class="col-sm-3"></div>
+						<div class="col-sm-4"></div>
 					</div>
 				</form>
 			</div>

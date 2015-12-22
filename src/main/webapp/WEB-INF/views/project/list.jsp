@@ -14,7 +14,7 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-<title>Employee list page</title>
+<title>PROJECT LIST</title>
 </head>
 <body>
 	<script>
@@ -31,7 +31,7 @@
 
 			<div class="col-sm-8">
 				<div class="page-header">
-					<h2>PROJECT LIST Page</h2>
+					<h2>PROJECT LIST</h2>
 					<p>
 						<a href="/employee/list">GO TO EMPLOYEE LIST PAGE</a>
 					</p>

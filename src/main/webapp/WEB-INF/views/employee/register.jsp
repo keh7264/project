@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Employee REGISTER Page</title>
+<title>사원 등록 페이지</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -15,6 +15,7 @@
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </head>
 <body>
+
 	<br />
 	<div class="container">
 
@@ -22,10 +23,10 @@
 			<div class="col-sm-2"></div>
 			<div class="col-sm-8">
 				<div class="page-header">
-					<h2>Employee REGISTER Page</h2>
+					<h2>사원 등록 페이지</h2>
 				</div>
 				<br /> 
-				<form role="form" method="post">
+				<form name="form" method="post">
 					<input type="hidden" name="id" value="${employeeVO.id}">
 
 					<div class="well well-sm">
@@ -33,7 +34,7 @@
 							<label for="name_ko"> 한글이름 </label>
 						</p>
 						<input type="text" name="name_ko" value="${employeeVO.name_ko}"
-							class="form-control">
+							class="form-control" required>
 					</div>
 					<div class="well well-sm">
 						<p>
@@ -47,7 +48,7 @@
 							<label for="phone"> 전화번호 </label>
 						</p>
 						<input type="text" name='phone' value="${employeeVO.phone}"
-							class="form-control">
+							class="form-control" required>
 					</div>
 					<div class="well well-sm">
 						<p>

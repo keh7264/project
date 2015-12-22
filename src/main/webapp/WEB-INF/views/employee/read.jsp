@@ -15,7 +15,7 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-<title>Employee Detail Page</title>
+<title>사원 상세정보</title>
 </head>
 <body>
 	<script>
@@ -52,7 +52,7 @@
 
 			<div class="col-sm-8">
 				<div class="page-header">
-					<h2>Employee Detail Page</h2>
+					<h2>사원 상세정보</h2>
 				</div>
 				<br />
 				<form role="form" method="post">

@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-<title>Insert title here</title>
+<title>프로젝트 정보 수정</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -36,7 +36,7 @@
 			<div class="col-sm-2"></div>
 			<div class="col-sm-8">
 				<div class="page-header">
-					<h2>Project Modify Page</h2>
+					<h2>프로젝트 정보 수정</h2>
 				</div>
 				<br /> <br />
 				<form role="form" method="post">
@@ -47,7 +47,7 @@
 							<label for="name"> 프로젝트명 </label>
 						</p>
 						<input type="text" name="name" value="${projectVO.name}"
-							class="form-control">
+							class="form-control" required>
 					</div>
 					<div class="well well-sm">
 						<p>
@@ -61,7 +61,7 @@
 							<label for="end_date"> 마감예정일 (yyyy-mm-dd) </label>
 						</p>
 						<input type="text" name='end_date' value='${projectVO.end_date }'
-							class="form-control">
+							class="form-control" >
 					</div>
 					<div class="well well-sm">
 						<p>

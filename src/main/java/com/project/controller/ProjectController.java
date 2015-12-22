@@ -33,6 +33,7 @@ public class ProjectController {
 			throws Exception {
 		logger.info("register post.............");
 
+		settingDateIsNull(project);
 		service.register(project);
 		rttr.addFlashAttribute("result", "success");
 
@@ -61,7 +62,7 @@ public class ProjectController {
 	public String modifyPOST(ProjectVO project, RedirectAttributes rttr)
 			throws Exception {
 		logger.info("modify post................................");
-
+		settingDateIsNull(project);
 		service.modify(project);
 		rttr.addFlashAttribute("result", "success");
 
@@ -76,5 +77,15 @@ public class ProjectController {
 
 		rttr.addFlashAttribute("result", "success");
 		return "redirect:/project/list";
+	}
+	
+	//db에 ''이 아니라 null이 입력되게 설정
+	public void settingDateIsNull(ProjectVO project){
+		if("".equals(project.getStart_date()) ){
+			project.setStart_date(null);
+		}
+		if("".equals(project.getEnd_date())){
+			project.setEnd_date(null);
+		}
 	}
 }
