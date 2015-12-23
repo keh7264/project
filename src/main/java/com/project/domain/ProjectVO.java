@@ -1,13 +1,9 @@
 package com.project.domain;
 
-import org.springframework.format.annotation.DateTimeFormat;
-
 public class ProjectVO {
 	private Integer id;
 	private String name;
-	
 	private String start_date;
-	
 	private String end_date;
 	private String website;
 	private String detail;
@@ -58,6 +54,13 @@ public class ProjectVO {
 
 	public void setDetail(String detail) {
 		this.detail = detail;
+	}
+
+	@Override
+	public String toString() {
+		return "ProjectVO[id: " + id + ", name: " + name + ", start_date: "
+				+ start_date + ", end_date:" + end_date + ", website: "
+				+ website + ", detail: " + detail + "]\n";
 	}
 
 }

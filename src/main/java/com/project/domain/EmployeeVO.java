@@ -11,12 +11,12 @@ public class EmployeeVO {
 	private String address;
 	private Date reg_date;
 
-	public Date getRegdate() {
+	public Date getReg_date() {
 		return reg_date;
 	}
 
-	public void setRegdate(Date regdate) {
-		this.reg_date = regdate;
+	public void setReg_date(Date reg_date) {
+		this.reg_date = reg_date;
 	}
 
 	public Integer getId() {
@@ -67,4 +67,10 @@ public class EmployeeVO {
 		this.address = address;
 	}
 
+	@Override
+	public String toString() {
+		return "EmployeeVO[id: " + id + ", name_ko: " + name_ko + ", name_en: "
+				+ name_en + ", phone:" + phone + ", email: " + email
+				+ ", address: " + address + ", reg_date: " + reg_date + "]"+"\n";
+	}
 }
