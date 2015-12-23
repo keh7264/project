@@ -15,6 +15,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.project.domain.EmployeeProjectVO;
 import com.project.domain.EmployeeVO;
+import com.project.domain.ProjectVO;
 import com.project.service.EmployeeService;
 
 @Controller
@@ -36,6 +37,7 @@ public class EmployeeController {
 			throws Exception {
 		logger.info("register post.............");
 
+		convertBlankIntoNull(employee);
 		service.register(employee);
 		rttr.addFlashAttribute("result", "success");
 
@@ -66,16 +68,13 @@ public class EmployeeController {
 	public String modifyPOST(EmployeeVO employee, RedirectAttributes rttr)
 			throws Exception {
 		logger.info("modify post................................");
-
+		
+		convertBlankIntoNull(employee);
 		service.modify(employee);
-		/*
-		 * EmployeeProjectVO epVO = new EmployeeProjectVO();
-		 * epVO.setEmployee_id(employee.getId()); epVO.setProject_id();
-		 * service.addProject(epVO);
-		 */
+		
 		rttr.addFlashAttribute("result", "success");
 
-		return "redirect:/employee/read?id="+employee.getId();
+		return "redirect:/employee/read?id=" + employee.getId();
 	}
 
 	@RequestMapping(value = "/remove", method = RequestMethod.POST)
@@ -126,6 +125,13 @@ public class EmployeeController {
 
 		rttr.addFlashAttribute("result", "success");
 		return "redirect:/employee/projectManagement/read?id=" + employee_id;
+	}
+
+	// 이메일 UNIQUE 속성때문에
+	public void convertBlankIntoNull(EmployeeVO employee) {
+		if ("".equals(employee.getEmail())) {
+			employee.setEmail(null);
+		}
 	}
 
 }

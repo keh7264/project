@@ -95,12 +95,12 @@
 				</div>
 				<div class="well well-sm">
 					<p>
-						<label for="regdate"> 등록일 </label>
+						<label for="reg_date"> 등록일 </label>
 					</p>
 
-					<input type="text" name='regdate'
+					<input type="text" name='reg_date'
 						value="<fmt:formatDate pattern='yyyy-MM-dd hh:mm'
-										value='${employeeVO.regdate }' />"
+										value='${employeeVO.reg_date }' />"
 						readonly="readonly" class="form-control">
 				</div>
 				<div class="well well-sm">

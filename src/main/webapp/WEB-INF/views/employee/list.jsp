@@ -56,7 +56,7 @@
 								<td><a href="/employee/read?id=${employeeVO.id }">${employeeVO.name_ko}</a></td>
 								<td>${employeeVO.phone}</td>
 								<td><fmt:formatDate pattern="yyyy-MM-dd"
-										value="${employeeVO.regdate }" /></td>
+										value="${employeeVO.reg_date }" /></td>
 							</tr>
 						</c:forEach>
 					</tbody>
